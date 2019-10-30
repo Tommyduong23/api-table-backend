@@ -1,18 +1,20 @@
 require( 'apprequire' )( __dirname );
 require( 'dotenv' ).config();
 
-const server = appRequire( '/infra/web/server' );
-const knex   = appRequire( '/infra/database/knex' );
+const { Model } = require( 'objection' );
 
-// Connect to database
-knex.raw( 'select 1+1 as result' )
-	.then( () => {
-		console.log( 'connected to db' );
-	} )
-	.catch( ( err ) => {
-		console.log( 'not connected to db : ', err );
-	} );
+const { env }     = require( './src/config' );
+const validateEnv = require( './src/config/validateEnv' );
+const server      = require( './src/web/server' );
+const knex        = require( './src/helpers/knex' );
 
+// check config to not have any undefined env variables
+if ( validateEnv( env ) ) {
+	process.exit( 1 );
+}
+
+// setup db
+Model.knex( knex );
 
 // Start server
 server.start();
