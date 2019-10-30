@@ -1,8 +1,9 @@
-const knexConfig = process.env.NODE_ENV || 'live';
+const environment      = require( './environment' );
+const fbServiceAccount = require( './firebase' );
+const knexfile         = require( './knexfile' );
 
-const config = require( './environment' );
-const database = require( './knexfile' )[knexConfig];
-
-module.exports = Object.assign( {
-	db : database
-}, config );
+module.exports = {
+	knexfile,
+	fbServiceAccount,
+	env : environment,
+};

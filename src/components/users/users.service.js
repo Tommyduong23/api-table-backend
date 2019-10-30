@@ -1,13 +1,11 @@
-const Promise = require( 'bluebird' );
+const Bluebird = require( 'bluebird' );
 
 const Repo = require( './users.repo' );
 
-const createUser = Promise.method( async () => {
+module.exports = class UserService {
+	static createUser( user ) {
 
-	return Repo.createUser();
+		Repo.createUser( user );
 
-} );
-
-module.exports = {
-	createUser,
+	}
 };

@@ -8,11 +8,10 @@ const validateConfig = ( config ) => {
 
 		if ( typeof value === 'object' ) {
 			valid = validateConfig( value );
-			return;
 		}
 
 		if ( value === undefined ) {
-			console.warn( `${key} is not undefined` );
+			console.warn( `${key} is not defined` );
 			valid = false;
 		}
 
