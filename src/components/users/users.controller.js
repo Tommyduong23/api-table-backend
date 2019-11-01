@@ -3,18 +3,16 @@ const express = require( 'express' );
 const Service   = require( './users.service' );
 const Validator = require( './users.validator' );
 
-const Authenticate = appRequire( 'web/helpers/authenticate' );
-const Authorize   = appRequire( 'web/helpers/authorize' );
-
-
+// const Authenticate = appRequire( 'web/helpers/authenticate' );
+// const Authorize   = appRequire( 'web/helpers/authorize' );
 
 const router = express.Router();
 
 router.post(
 	'/user',
 
-	Authenticate,
-	Authorize,
+	// Authenticate,
+	// Authorize,
 	Validator.createUser,
 
 	( req, res, next ) => {

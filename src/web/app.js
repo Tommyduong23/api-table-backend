@@ -15,11 +15,13 @@ app.use( bodyParser.urlencoded( {
 	extended : false,
 } ) );
 
+// Add Routes
+routeLoader( 'components', app );
+
 // Add Error handler
 app.use( Celebrate.errors() );
 
 app.use( ( err, req, res, next ) => {
-
 	errorHandler( err );
 
 	// Programming errors
@@ -28,7 +30,6 @@ app.use( ( err, req, res, next ) => {
 	}
 
 	res.status( err.status ).send( err );
-
 } );
 
 process.on( 'unhandledRejection', ( reason ) => {
@@ -43,8 +44,5 @@ process.on( 'uncaughtException', ( err ) => {
 	}
 
 } );
-
-// Add Routes
-routeLoader( 'components', app );
 
 module.exports = app;

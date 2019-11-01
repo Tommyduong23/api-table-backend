@@ -1,0 +1,16 @@
+{
+	"ignore": [
+			"**/*.test.js",
+			"**/*.spec.js",
+			".git",
+			"node_modules"
+	],
+	"verbose": true,
+	"watch": [
+			"src/"
+	],
+	"execMap": {
+		"js": "node -r esm"
+	},
+	"ext": "js,json"
+}

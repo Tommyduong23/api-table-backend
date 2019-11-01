@@ -1,9 +1,9 @@
 const environment      = require( './environment' );
-const fbServiceAccount = require( './firebase' );
-const knexfile         = require( './knexfile' );
+// const knexfile         = require( './knexfile' );
+// const fbServiceAccount = require( './firebase' );
 
 module.exports = {
-	knexfile,
-	fbServiceAccount,
+	// knexfile,
+	// fbServiceAccount,
 	env : environment,
 };
