@@ -1,17 +1,19 @@
 const express    = require( 'express' );
-const bodyParser = require( 'body-parser' );
 const Celebrate  = require( 'celebrate' );
 
 const errorHandler = require( './helpers/errorHandler' );
 const routeLoader  = require( './helpers/routeLoader' );
+const CorsOptions = require( './helpers/corsOptions' );
 
 const app = express();
 
+app.use( cors( CorsOptions ) );
+
 // parse all of our requests into JSON
-app.use( bodyParser.json() );
+app.use( express.json() );
 
 // has to do with library extension. Must be false
-app.use( bodyParser.urlencoded( {
+app.use( express.urlencoded( {
 	extended : false,
 } ) );
 

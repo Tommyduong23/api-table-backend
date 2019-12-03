@@ -1,4 +1,4 @@
-require( 'dotenv' ).config();
+require( 'dotenv' ).config( { path : './src/config/private/.env' } );
 require( 'apprequire' )( __dirname );
 
 const { Model } = require( 'objection' );
