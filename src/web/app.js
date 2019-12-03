@@ -1,4 +1,5 @@
 const express    = require( 'express' );
+const cors       = require( 'cors' );
 const Celebrate  = require( 'celebrate' );
 
 const errorHandler = require( './helpers/errorHandler' );
